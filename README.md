@@ -58,5 +58,19 @@ Open terminal and run this command:
 
 `invoice-format-parser$ php main.php examples/invoice1.txt`
 
+##How It Works
+
+The `main.php` init file reads invoice file path from command line arguments, read the first line from invoice file. The second invoice format contains the product code in the first line thus has no space in it while the first invoice format does contain spaces. The script in `main.php` uses this information  to determine which type of parser to create.
+
+````php
+// create parser
+strpos($first_line, ' ') ?  ParserFactory::createParser($file_name, 1)
+    : ParserFactory::createParser($file_name, 2);
+```
 
 
+The file `ParserFactory` class acts as a factory to build appropreate parser. Eeach parser has its own implmentation.
+This repository contains two implementations `FirstFormParser` and `SecondFormParser`.
+
+
+The parsing taks is done inside the parser. Finally, `Printer` class receives parsed result returned from each parser's implementation to print out the report.
