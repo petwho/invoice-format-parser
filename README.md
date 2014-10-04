@@ -10,12 +10,11 @@ This repository contains the following items:
 - `examples`: example invoice text files.
 
 ##Overview
-Invoice format parser is small parsing tool written in PHP and is used to parse invoice text.
-There are two implementations which is included into the repository, each supports different formats of invoice.
+Invoice format parser is a small parsing tool written in PHP and is used to parse invoice text.
+There are two implementations which are included into the repository, each supports different invoice formats.
 
 
-The first implementation supports parsing format with no product code and each line from invoice contains product name,
-number of units, price and total cost. Here is an example:
+The first implementation supports parsing format which has no product code inside with each line from invoice contains product name, number of units, price and total cost. Here is an example of this format:
 
 ```
 13-inch MacBook Air 256GB 1 1200 1200
@@ -24,8 +23,8 @@ Windows 8.1 Professional  1 199 199
 Windows 8.1 Professional  1 199 199
 ```
 
-The second implementation supports parsing format which contains product codes. Each product code is put into one
-line and then followed by product name and price. Here is an example:
+The second implementation supports parsing format which contains product code. Each product code is put into one
+line and then followed by product name and price. Here is an example of this format:
 
 ```
 13INCH-MBA-256
@@ -39,9 +38,7 @@ WIN-81-PRO
 Windows 8.1 Professional 199
 ```
 
-Those two parsers will generate a report with the same format which has product name, number of units, price and total.
-
-Here is an example output:
+Using this tool will help to generate reports with the same format which contains product name, number of units, price and total cost. Here is an example:
 
 Name                          |Unit      |Price     |Total
 ------------------------------|----------|----------|-----
@@ -52,11 +49,12 @@ Windows 8.1 Professional      |1         |199       |199
 
 ##Usage
 
-Clone the repository to your local computer. Make sure you have PHP installed on it.
-This should work with any version grater than 5.0. Howver, latest using version 5.5 is recommended.
-Open terminal and run this command:
+Download the repository to your local computer and unzip it. Make sure you have PHP installed on your machine.
+This should work with any versions greater than 5.0. However, using latest version 5.5 is recommended.
 
-`invoice-format-parser$ php main.php examples/invoice1.txt`
+In your computer, open up terminal emulator. Then navigate to the unzipped folder and run this command:
+
+`$ php main.php examples/invoice1.txt`
 
 ##How It Works
 
